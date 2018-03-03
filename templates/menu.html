@@ -1,0 +1,42 @@
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-left-item">
+                <a href="{{ SITEURL }}/index.html" class="navbar-link navbar-title">{{ SITENAME }}</a>
+            </li>
+            <li class="navbar-right-item">
+                <a href="#" class="navbar-link" data-popover="#archiveNavPopover">Archive</a>
+                <div id="archiveNavPopover" class="popover">
+                    <ul class="popover-list">
+                        <li class="popover-item">
+                            <a href="{{ SITEURL }}/tags.html" class="popover-link">
+                                Tags
+                            </a>
+                        </li>
+                        <li class="popover-item">
+                            <a href="{{ SITEURL }}/categories.html" class="popover-link">
+                                Categories
+                            </a>
+                        </li>
+                        <li class="popover-item">
+                            <a href="{{ SITEURL }}/archives.html" class="popover-link">
+                                All Posts
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            {% if pages %}
+            {% for page in pages %}
+            <li class="navbar-right-item">
+                <a href="{{ SITEURL }}/{{ page.url }}" class="navbar-link">{{ page.title }}</a>
+            </li>
+            {% endfor %}
+            {% endif %}
+            <li class="navbar-right-item">
+                <a href="{{ SITEURL }}/index.html" class="navbar-link">Blog</a>
+            </li>
+        </ul>
+    </div>
+</nav>

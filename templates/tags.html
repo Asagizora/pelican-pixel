@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Tags - {{ SITENAME }}{% endblock %}
+
+{% block slogan %}
+    <h2 class="title">
+        Tags
+    </h2>
+{% endblock %}
+
+{% block content %}
+    {% if tags %}
+    <div class="archives">
+        <ul id="fold">
+            {% for tag, articles in tags|sort %}
+            <li>
+                <strong>{{ tag }} - {{ articles|count }} posts</strong>
+                <ul>
+                {% for article in articles %}
+                    <li>
+                        <span>
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                        </span>
+                        <span class="u-pull-right">
+                            {{ article.date.strftime('%d/%m/%Y') }}
+                        </span>
+                    </li>
+                {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endblock %}

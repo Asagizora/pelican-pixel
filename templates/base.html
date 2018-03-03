@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard Meta 
+    ––––––––––––––––––––––––––––––––––––––––––––––––— -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+
+    <!-- Site Properities
+    ––––––––––––––––––––––––––––––––––––––––––––––––— -->
+    <meta name="description" content="{{ DESCRIPTION }}">
+    <meta property="og:site_name" content="{{ SITENAME}}" />
+    <meta property="og:locale" content="{{ DEFAULT_LANG }}" />
+
+    {% block meta_tags %}
+    <meta property="og:title" content="{{ SITENAME }}" />
+    <meta property="og:url" content="{{ SITEURL }}"/>
+    <meta property="og:description" content=" {{ DESCRIPTION }}" />
+    <meta property="og:type" content="website" />
+    {% endblock meta_tags %}
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+    <!-- CSS
+    ————————————————————————————————————————————————— -->
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/site.css">
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/github-markdown.css">
+
+    <!-- Scripts
+    ————————————————————————————————————————————————— -->
+    <script src="{{ SITEURL }}/theme/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/site.js"></script>
+
+    <!-- Favicon
+    ————————————————————————————————————————————————— -->
+    <link rel="icon" type="image/png" href="{{ SITEURL }}/theme/images/logo.png">
+
+    {% block header_extra_scripts %}{% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        <section class="header">
+            {% block slogan %}{% endblock %}
+        </section>
+        {% include 'menu.html' %}
+
+        {% block content %}{% endblock %}
+
+        {% include 'footer.html' %}
+        {% block foot_extra_scripts %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% if articles %}
+{% for article in (articles_page.object_list if articles_page else articles) %}
+<div class="docs-section">
+    <div class="row">
+        <div class="nine columns">
+            <h3 class="docs-header">
+                <a href="{{ SITEURL }}/{{ article.url }}" class="header-link">
+                    {{ article.title }}
+                </a>
+            </h3>
+        </div>
+        <div class="three columns date">
+            {{ article.date.strftime('%d %B %Y') }}
+        </div>
+    </div>
+    <div class="docs-summary markdown-body">
+        {{ article.summary }}
+    </div>
+    <div class="row docs-summary-meta">
+        <div class="four columns catecory">
+            <strong>Category:</strong>
+            {% if article.category %}
+            <a href="{{ SITEURL }}/{{ article.category.url }}">
+                {{ article.category }}
+            </a>
+            {% else %}
+                None
+            {% endif %}
+        </div>
+        <div class="eight columns tags">
+            <strong>Tags:</strong>
+            {% if article.tags %}
+                {% for tag in article.tags %}
+                <code><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></code>
+                {% endfor %}
+            {% else %}
+                None
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}

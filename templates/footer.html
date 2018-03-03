@@ -1,0 +1,8 @@
+<div class="footer">
+    {% if LOGOPATH %}
+    <img src="{{ SITEURL }}/{{ LOGOPATH }}" class="footer-logo">
+    {% else %}
+    <img src="{{ SITEURL }}/theme/images/logo.png" class="footer-logo">
+    {% endif %}
+    <p>&copy; {{ AUTHOR }} 2018</p>
+</div>

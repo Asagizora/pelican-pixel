@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block slogan %}
+    <h2 class="title">
+        {% if WELCOME_MESSAGE %}
+            {{ WELCOME_MESSAGE }}
+        {% else %}
+            Pixel
+        {% endif %}
+    </h2>
+{% endblock %}
+
+{% block content %}
+<div class="article-list">
+    {% include 'article_list.html' %}
+</div>
+{% endblock %}

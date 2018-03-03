@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block meta_tags %}
+<meta property="og:title" content="{{ article.title }}" />
+<meta property="og:url" content="{{ article.url }}" />
+<meta property="og:description" content=" {{ article.meta_description }}" />
+<meta property="og:type" content="article" />
+<meta property="og:author" content="{{ article.author }}" />
+{% endblock %}
+
+{% block slogan %}
+<h2 class="title">
+    {{ article.title }}
+</h2>
+<div class="article-meta row">
+    <div class="four columns category">
+        <strong>Category:</strong>
+        {% if article.category %}
+        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+        {% endif %}
+    </div>
+    <div class="eight columns tags">
+        <strong>Tags:</strong>
+        {% if article.tags %}
+            {% for tag in article.tags %}
+            <code><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></code>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="article markdown-body">
+    {{ article.content }}
+</div>
+{% endblock %}

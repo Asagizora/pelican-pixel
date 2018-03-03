@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Archives - {{ SITENAME }}{% endblock %}
+
+{% block slogan %}
+    <h2 class="title">
+        Archives
+    </h2>
+{% endblock %}
+
+{% block content %}
+    <div class="archives">
+        <ul id="fold">
+            {% for article in dates %}
+            <li>
+                <span>
+                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                </span>
+                <span class="u-pull-right">
+                    {{ article.date.strftime('%d/%m/%Y') }}
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
