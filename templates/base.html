@@ -52,12 +52,14 @@
         <section class="header">
             {% block slogan %}{% endblock %}
         </section>
-        {% include 'menu.html' %}
+        {% include "menu.html" %}
 
         {% block content %}{% endblock %}
 
-        {% include 'footer.html' %}
-        {% block foot_extra_scripts %}{% endblock %}
+        {% include "footer.html" %}
     </div>
+        {% include "analytics.html" %}
+        {% include "github.html" %}
+        {% block foot_extra_scripts %}{% endblock %}
 </body>
 </html>

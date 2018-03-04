@@ -10,6 +10,17 @@
 <meta property="og:author" content="{{ article.author }}" />
 {% endblock %}
 
+{% block header_extra_scripts %}
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+</script>
+{% endblock %}
+
 {% block slogan %}
 <h2 class="title">
     {{ article.title }}
@@ -36,4 +47,5 @@
 <div class="article markdown-body">
     {{ article.content }}
 </div>
+{% include "disqus.html" %}
 {% endblock %}

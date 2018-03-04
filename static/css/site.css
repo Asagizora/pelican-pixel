@@ -2,7 +2,7 @@
     max-width: 800px;
 }
 .header {
-    margin-top: 6rem;
+    margin-top: 4rem;
     text-align: center;
 }
 .docs-section {
@@ -53,12 +53,13 @@ a {
 .navbar {
     display: none; 
 }
-
-/* markdown on mobile phone */
-@media (max-width: 767px) {
-    .markdown-body {
-        padding: 15px;
-    }
+.anchor-link {
+    display: none;
+}
+.article.markdown-body {
+    border-bottom: 1px solid #eee;
+    padding: 5rem 0;
+    margin-bottom: 3rem;
 }
 
 /* Larger than phone */
@@ -74,26 +75,14 @@ a {
     .value-img {
         margin-bottom: 1rem;
     }
-    .example-grid .column,
-    .example-grid .columns {
-        margin-bottom: 1.5rem;
-    }
-    .example-send-yourself-copy {
-        float: right;
-        margin-top: 12px;
-    }
-    .example-screenshot-wrapper {
-        position: absolute;
-        width: 48%;
-        height: 100%;
-        left: 0;
-        max-height: none;
-    }
     .category {
         text-align: left;
     }
     .tags {
         text-align: left;
+    }
+    .markdown-body {
+        padding: 0;
     }
 }
 
@@ -245,5 +234,8 @@ a {
     }
     .tags {
         text-align: right;
+    }
+    .markdown-body {
+        padding: 1rem;
     }
 }

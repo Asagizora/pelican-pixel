@@ -4,7 +4,7 @@ $(document).ready(function() {
   var $codeSnippets = $('.code-example-body'),
       $nav = $('.navbar'),
       $body = $('body'),
-      $navTitle = $('.navbar-title').html()
+      $navTitle = $('.navbar-title').html(),
       $window = $(window),
       $popoverLink = $('[data-popover]'),
       navOffsetTop = $nav.offset().top,
@@ -59,7 +59,7 @@ $(document).ready(function() {
     $('html, body').animate({
         scrollTop: $("#elementtoScrollToID").offset().top
     }, 2000);
-});
+  });
 
   function resize() {
     $body.removeClass('has-docked-nav')
@@ -67,11 +67,21 @@ $(document).ready(function() {
     onScroll()
   }
 
+  $('.navbar-title').hover(function(){
+    $('.navbar-title').css('color', 'black');
+  }, function(){
+    $('.navbar-title').css('color', 'black');
+  })
+
   function onScroll() {
     if(navOffsetTop < $window.scrollTop() && !$body.hasClass('has-docked-nav')) {
       $body.addClass('has-docked-nav')
       $('.navbar-title').fadeOut(200, function() {
         $(this).text($('.title').html()).fadeIn(200);
+      });
+      $('.navbar-title').click(function(){
+        scrollTo(0,0);
+        return false;
       });
     }
     if(navOffsetTop > $window.scrollTop() && $body.hasClass('has-docked-nav')) {
@@ -79,6 +89,7 @@ $(document).ready(function() {
       $('.navbar-title').fadeOut(200, function() {
         $(this).text($navTitle).fadeIn(200);
       })
+      $('.navbar-title').unbind("click");
     }
   }
 
@@ -94,6 +105,7 @@ $(document).ready(function() {
       $(this).html(newContent)
     })
   }
+
 
   init();
 
