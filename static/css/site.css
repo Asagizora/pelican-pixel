@@ -53,6 +53,10 @@ a {
     padding: 1rem;
 }
 
+.MathJax {
+    z-index: -1;
+}
+
 .article-meta {
     padding: 1rem;
 }
