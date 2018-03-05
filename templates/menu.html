@@ -1,3 +1,35 @@
+<div class="mobile-nav">
+    <div id="nav-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="mobile-menu">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="{{ SITEURL }}/index.html" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="{{ SITEURL }}/tags.html" class="mobile-nav-link">Tags</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="{{ SITEURL }}/categories.html" class="mobile-nav-link">Categories</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="{{ SITEURL }}/archives.html" class="mobile-nav-link">Archives</a>
+            </li>
+            {% if pages %}
+            {% for page in pages[::-1] %}
+            {% if page.title != "Comment Policy" and page.title != "CV" %}
+            <li class="mobile-nav-item">
+                <a href="{{ SITEURL }}/{{ page.url }}" class="mobile-nav-link">{{ page.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>
 <div class="navbar-spacer"></div>
 <nav class="navbar">
     <div class="container">
@@ -5,6 +37,15 @@
             <li class="navbar-left-item">
                 <a href="{{ SITEURL }}/index.html" class="navbar-link navbar-title" >{{ SITENAME }}</a>
             </li>
+            {% if pages %}
+            {% for page in pages %}
+            {% if page.title != "Comment Policy" and page.title != "CV" %}
+            <li class="navbar-right-item">
+                <a href="{{ SITEURL }}/{{ page.url }}" class="navbar-link">{{ page.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
             <li class="navbar-right-item">
                 <a href="#" class="navbar-link" data-popover="#archiveNavPopover">Archive</a>
                 <div id="archiveNavPopover" class="popover">
@@ -27,15 +68,6 @@
                     </ul>
                 </div>
             </li>
-            {% if pages %}
-            {% for page in pages %}
-            {% if page.title != "Comment Policy" %}
-            <li class="navbar-right-item">
-                <a href="{{ SITEURL }}/{{ page.url }}" class="navbar-link">{{ page.title }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
             <li class="navbar-right-item">
                 <a href="{{ SITEURL }}/index.html" class="navbar-link">Blog</a>
             </li>

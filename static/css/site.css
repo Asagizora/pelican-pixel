@@ -1,40 +1,50 @@
 .container {
     max-width: 800px;
 }
+
 .header {
     margin-top: 4rem;
     text-align: center;
 }
+
 .docs-section {
     border-top: 1px solid #eee;
     padding: 4rem 0 1em 0;
     margin-bottom: 0;
 }
+
 .docs-section .header-link {
     color: #222;
     text-decoration: none;
 }
+
 .docs-section .header-link:hover {
     color: darkred;
 }
+
 .date {
     text-align: right;
 }
+
 .docs-summary-meta {
     margin-top: 1rem;
 }
+
 .footer {
     text-align: center;
     padding: 6rem 0;
 }
+
 .footer-logo {
     max-width: 3rem;
     height: auto;
 }
+
 a {
     color: darkred;
     text-decoration: none;
 }
+
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
@@ -42,24 +52,159 @@ a {
     margin: 0 auto;
     padding: 1rem;
 }
+
 .article-meta {
     padding: 1rem;
 }
+
 .archives {
     max-width: 400px;
     margin: 3rem auto;
     text-align: left;
 }
+
 .navbar {
-    display: none; 
+    display: none;
 }
+
 .anchor-link {
     display: none;
 }
+
 .article.markdown-body {
     border-bottom: 1px solid #eee;
     padding: 5rem 0;
     margin-bottom: 3rem;
+}
+
+.mobile-nav {
+    position: fixed;
+    left: 30px;
+    top: 40px;
+    /* width: 24px; */
+    height: 18px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 4px;
+    transition: top 0.2s ease-in-out;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .mobile-menu {
+        background: rgba(255, 255, 255, 0.5);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .mobile-menu {
+        background: rgba(255, 255, 255, 0.75);
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, .18), 0px 6px 10px rgba(0, 0, 0, .22);
+    }
+}
+
+.mobile-nav-list {
+    list-style: none;
+    margin: 40% 35%;
+    text-align: left;
+}
+
+.mobile-nav-item {
+    /* font-weight: bold; */
+    font-size: 3rem;
+    color: darkred;
+}
+
+.mobile-nav-link {
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-nav-link:hover {
+    color: red;
+}
+
+/* Nav icon */
+
+#nav-icon {
+    position: relative;
+    z-index: 999;
+    margin: auto auto;
+    width: 24px;
+    height: 18px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#nav-icon span {
+    display: block;
+    position: absolute;
+    height: .3rem;
+    width: 100%;
+    background: darkred;
+    border-radius: 9px;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#nav-icon span:nth-child(1) {
+    top: 0px;
+}
+
+#nav-icon span:nth-child(2) {
+    top: 8px;
+}
+
+#nav-icon span:nth-child(3) {
+    top: 16px;
+}
+
+#nav-icon.open span:nth-child(1) {
+    top: 9px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+#nav-icon.open span:nth-child(2) {
+    opacity: 0;
+    left: -24px;
+}
+
+#nav-icon.open span:nth-child(3) {
+    top: 8px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 
 /* Larger than phone */
@@ -89,6 +234,13 @@ a {
 /* Larger than tablet */
 
 @media (min-width: 750px) {
+    /* Nav Icon */
+    .mobile-nav {
+        display: none;
+    }
+    #nav-icon {
+        display: none;
+    }
     /* Navbar */
     .navbar+.docs-section {
         border-top-width: 0;
@@ -164,7 +316,7 @@ a {
         border: 1px solid #eee;
         border-radius: 4px;
         top: 92%;
-        left: -50%;
+        left: -30%;
         -webkit-filter: drop-shadow(0 0 6px rgba(0, 0, 0, .1));
         -moz-filter: drop-shadow(0 0 6px rgba(0, 0, 0, .1));
         filter: drop-shadow(0 0 6px rgba(0, 0, 0, .1));
