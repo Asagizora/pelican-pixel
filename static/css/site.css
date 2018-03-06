@@ -58,7 +58,11 @@ a {
 }
 
 .article-meta {
-    padding: 1rem;
+    padding: 1rem 0;
+}
+
+.article-date {
+    margin: 2rem 0;
 }
 
 .archives {
@@ -116,7 +120,7 @@ a {
 
 @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
     .mobile-menu {
-        background: rgba(255, 255, 255, 0.75);
+        background: rgba(255, 255, 255, 1);
         box-shadow: 0px 10px 30px rgba(0, 0, 0, .18), 0px 6px 10px rgba(0, 0, 0, .22);
     }
 }

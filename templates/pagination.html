@@ -1,0 +1,5 @@
+<div id="pagination">
+    {% if articles_page.has_next() %}
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" class="next"></a>
+    {% endif %}
+</div>

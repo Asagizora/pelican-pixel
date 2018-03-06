@@ -46,6 +46,9 @@
 {% block content %}
 <div class="article markdown-body">
     {{ article.content }}
+    <div class="article-date u-pull-right">
+        {{ article.date.strftime('%d %B %Y') }}
+    </div>
 </div>
 {% include "disqus.html" %}
 {% endblock %}

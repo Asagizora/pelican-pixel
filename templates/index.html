@@ -11,7 +11,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="article-list">
+<div class="article-list" id="posts">
     {% include 'article_list.html' %}
 </div>
+{% include 'pagination.html' %}
 {% endblock %}

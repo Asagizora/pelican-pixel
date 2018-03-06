@@ -143,6 +143,15 @@ $(document).ready(function () {
     })
   }
 
+  var ias = jQuery.ias({
+    container:  '#posts',
+    item:       '.docs-section',
+    pagination: '#pagination',
+    next:       '.next'
+  });
+
+  ias.extension(new IASSpinnerExtension());
+  ias.extension(new IASTriggerExtension({offset: 2}));
 
   init();
 
