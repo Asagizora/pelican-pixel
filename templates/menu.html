@@ -20,7 +20,7 @@
             </li>
             {% if pages %}
             {% for page in pages[::-1] %}
-            {% if page.title != "Comment Policy" and page.title != "CV" %}
+            {% if page.title != "Comment Policy" and page.title != "Curriculum Vitae" %}
             <li class="mobile-nav-item">
                 <a href="{{ SITEURL }}/{{ page.url }}" class="mobile-nav-link">{{ page.title }}</a>
             </li>

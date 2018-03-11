@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block header_extra_scripts %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+{% endblock %}
+
 {% block slogan %}
     <h2 class="title">
         {% if WELCOME_MESSAGE %}
