@@ -40,14 +40,6 @@
     <script src="{{ SITEURL }}/theme/js/jquery-3.3.1.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/jquery-ias.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/site.js"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            processEscapes: true
-          }
-        });
-    </script>
 
     <!-- Favicon
     ————————————————————————————————————————————————— -->
@@ -70,5 +62,24 @@
         {% include "analytics.html" %}
         {% include "github.html" %}
         {% block foot_extra_scripts %}{% endblock %}
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "showMathMenu": false,
+        "HTML-CSS": {
+            "EqnChunk": 150,
+            "EqnChunkDelay": 20
+        },
+        "fast-preview": {
+            "disabled": true
+        },
+        "tex2jax": {
+            "inlineMath": [ ['$','$'], ["\\(","\\)"] ],
+            "processEscapes": true,
+            "preview": "none"
+        }
+    });
+</script>
+
 </body>
 </html>
