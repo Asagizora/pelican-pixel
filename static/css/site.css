@@ -1,3 +1,8 @@
+img[src*='#center'] { 
+    display: block;
+    margin: auto;
+}
+
 a {
     color: darkred;
     text-decoration: none;
