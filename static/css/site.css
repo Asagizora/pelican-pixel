@@ -3,6 +3,10 @@ img[src*='#center'] {
     margin: auto;
 }
 
+strong {
+    color: darkred;
+}
+
 a {
     color: darkred;
     text-decoration: none;
